@@ -1,5 +1,5 @@
 # ObjScripting
-#### [English Readme](https://github.com/PhongSeow/ObjScripting/blob/main/README.md)
+#### [English Readme](https://github.com/PhongSeow/ObjScripting/blob/master/README.md)
 这是一个将 Microsoft Scripting Runtime 映射到 .net 平台的类库和 NuGet 包，可以在不同的 .net 框架下使用。
 类库需要 %windir%\SysWOW64\scrrun.dll 支持，Windows 通常默认已安装好了。
 使用这个类库，可以方便将 VB6 和 ASP 的代码升级到 .net 平台。

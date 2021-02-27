@@ -1,5 +1,5 @@
 # ObjScripting
-#### [中文文档](https://github.com/PhongSeow/ObjScripting/blob/main/README.CN.md)
+#### [中文文档](https://github.com/PhongSeow/ObjScripting/blob/master/README.CN.md)
 This is a .net library and NuGet package that maps Microsoft Scripting Runtime. It can be used in different .net frameworks.
 The scrrun.dll required. Windows will be installed in advance.
 Using this library, you can easily upgrade VB6 and ASP code to .net platform.
