@@ -14,7 +14,7 @@
     <PackageTags>ObjScriptingLib VB6 ASP scrrun.dll
  Microsoft Scripting Runtime Dictionary Drive Encoder File FileSystemObject Folder TextStream</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <Version>1.0.3</Version>
     <Description>This is a .net library and NuGet package that maps Microsoft Scripting Runtime. It can be used in different .net frameworks.
 The scrrun.dll required. Windows will be installed in advance.
 Using this library, you can easily upgrade VB6 and ASP code to .net platform.
