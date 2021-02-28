@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>ObjScriptingDemo</RootNamespace>
+    <TargetFrameworks>net20;net30;net35;net40;net45;</TargetFrameworks>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <Authors>Seow Phong</Authors>
+	  <Company>Seow Phong Studio</Company>
+	  <Product>ObjScripting Demo Console</Product>
+	  <Description>Demo console program for ObjScriptingLib</Description>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageProjectUrl>https://en.seowphong.com/oss/ObjScripting/</PackageProjectUrl>
+	  <RepositoryType>GIT</RepositoryType>
+	  <RepositoryUrl>https://github.com/PhongSeow/ObjScripting/tree/master/Src/DotNet/ObjScriptingDemo</RepositoryUrl>
+	  <Version>1.0.1</Version>
+	  <PackageTags>ObjScriptingLib VB6 ASP scrrun.dll Microsoft Scripting Runtime Dictionary Drive Encoder File FileSystemObject Folder TextStream</PackageTags>
+	  <PackageReleaseNotes></PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <PackageReference Include="ObjScriptingLib">
+      <Version>1.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+    <PackageReference Include="ObjScriptingLib">
+      <Version>1.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ObjScriptingLib" Version="1.0.3" />
+  </ItemGroup>
+
+</Project>
