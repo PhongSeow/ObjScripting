@@ -11,6 +11,9 @@ Public Class ConsoleDemo
             Console.WriteLine("Press Q to Exit")
             Console.WriteLine("Press A to FileSystemObject")
             Console.WriteLine("Press B to TextStream")
+            Console.WriteLine("Press C to Encoder")
+            'Console.WriteLine("Press D to Dictionary")
+            'Console.WriteLine("Press E to Drive")
             Console.WriteLine("*******************")
             Select Case Console.ReadKey().Key
                 Case ConsoleKey.Q
@@ -27,6 +30,7 @@ Public Class ConsoleDemo
                         Console.WriteLine("Press D to FolderExists")
                         Console.WriteLine("Press E to CreateFolder")
                         Console.WriteLine("Press F to GetTempName")
+                        Console.WriteLine("Press G to GetFileVersion")
                         Console.WriteLine("*******************")
                         Select Case Console.ReadKey().Key
                             Case ConsoleKey.Q
@@ -86,6 +90,12 @@ Public Class ConsoleDemo
                                 Console.WriteLine("#################")
                                 Console.WriteLine("GetTempName: " & oFS.GetTempName)
                                 Console.WriteLine("#################")
+                            Case ConsoleKey.G
+                                Console.WriteLine("#################")
+                                Console.WriteLine("Input file path: ")
+                                Dim strFilePath As String = Console.ReadLine()
+                                Console.WriteLine("GetFileVersion: " & oFS.GetFileVersion(strFilePath))
+                                Console.WriteLine("#################")
                         End Select
                     Loop
                 Case ConsoleKey.B
@@ -138,6 +148,36 @@ Public Class ConsoleDemo
                                 End If
                         End Select
                     Loop
+                Case ConsoleKey.C
+                    Console.WriteLine("*******************")
+                    Console.WriteLine("Menu Encoder")
+                    Console.WriteLine("*******************")
+                    Console.WriteLine("Input VBS file path:")
+                    Dim strVBSFilePath As String = Console.ReadLine
+                    If oFS.FileExists(strVBSFilePath) = False Then
+                        Console.WriteLine(strVBSFilePath & " not found.")
+                    Else
+                        Dim oEncoder As New Encoder
+                        Console.WriteLine("OpenTextFile(" & strVBSFilePath & ")")
+                        Dim tsIn As TextStream = oFS.OpenTextFile(strVBSFilePath, FileSystemObject.IOMode.ForReading, False)
+                        If oFS.LastErr <> "" Then Console.WriteLine(oFS.LastErr)
+                        Dim strIn As String = tsIn.ReadAll
+                        tsIn.Close()
+                        With oEncoder
+                            Console.WriteLine("EncodeScriptFile:")
+                            Dim strEncData As String = .EncodeScriptFile(".vbs", strIn, 0, "")
+                            If .LastErr <> "" Then Console.WriteLine(.LastErr)
+                            Dim oFile As File = oFS.GetFile(strVBSFilePath)
+                            Dim strVBEFilePath As String = oFile.ParentFolder.Path & "\" & Replace(oFile.Name, ".vbs", ".vbe")
+                            Console.WriteLine("OpenTextFile(" & strVBEFilePath & ")")
+                            Dim tsOut As TextStream = oFS.OpenTextFile(strVBEFilePath, FileSystemObject.IOMode.ForWriting, True)
+                            If .LastErr <> "" Then Console.WriteLine(.LastErr)
+                            tsOut.Write(strEncData)
+                            tsOut.Close()
+                            Console.WriteLine("OK")
+                        End With
+                    End If
+                    Console.WriteLine("*******************")
             End Select
 
         Loop
