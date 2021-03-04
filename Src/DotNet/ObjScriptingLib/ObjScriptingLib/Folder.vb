@@ -4,12 +4,13 @@
 '* License: Copyright (c) 2020 Seow Phong, For more details, see the MIT LICENSE file included with this distribution.
 '* Describe: Mapping VB6 Scripting.Folder
 '* Home Url: https://www.seowphong.com or https://en.seowphong.com
-'* Version: 1.0.1
+'* Version: 1.0.2
 '* Create Time: 27/2/2021
+'* 1.0.2	4/3/2021	Modify ParentFolder,SubFolders,Drive,Files
 '**********************************
 Public Class Folder
 	Inherits PigBaseMini
-	Private Const CLS_VERSION As String = "1.0.1"
+	Private Const CLS_VERSION As String = "1.0.2"
 	Public Obj As Object
 	Public Sub New()
 		MyBase.New(CLS_VERSION)
@@ -94,7 +95,9 @@ Public Class Folder
 	Public ReadOnly Property Drive() As Drive
 		Get
 			Try
-				Return Me.Obj.Drive
+				Dim oDrive As New Drive
+				oDrive.Obj = Me.Obj.Drive
+				Return oDrive
 				Me.ClearErr()
 			Catch ex As Exception
 				Me.SetSubErrInf("Drive.Get", ex)
@@ -105,7 +108,9 @@ Public Class Folder
 	Public ReadOnly Property Files() As Files
 		Get
 			Try
-				Return Me.Obj.Files
+				Dim oFiles As New Files
+				oFiles.Obj = Me.Obj.Files
+				Return oFiles
 				Me.ClearErr()
 			Catch ex As Exception
 				Me.SetSubErrInf("Files.Get", ex)
@@ -154,7 +159,9 @@ Public Class Folder
 	Public ReadOnly Property ParentFolder() As Folder
 		Get
 			Try
-				Return Me.Obj.ParentFolder
+				Dim oFolder As New Folder
+				oFolder.Obj = Me.Obj.ParentFolder
+				Return oFolder
 				Me.ClearErr()
 			Catch ex As Exception
 				Me.SetSubErrInf("ParentFolder.Get", ex)
@@ -209,7 +216,9 @@ Public Class Folder
 	Public ReadOnly Property SubFolders() As Folders
 		Get
 			Try
-				Return Me.Obj.SubFolders
+				Dim oFolders As New Folders
+				oFolders.Obj = Me.Obj.SubFolders
+				Return oFolders
 				Me.ClearErr()
 			Catch ex As Exception
 				Me.SetSubErrInf("SubFolders.Get", ex)

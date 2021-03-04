@@ -4,12 +4,13 @@
 '* License: Copyright (c) 2020 Seow Phong, For more details, see the MIT LICENSE file included with this distribution.
 '* Describe: Mapping VB6 Scripting.File
 '* Home Url: https://www.seowphong.com or https://en.seowphong.com
-'* Version: 1.0.1
+'* Version: 1.0.2
 '* Create Time: 27/2/2021
+'* 1.0.2	4/3/2021	Modify ParentFolder
 '**********************************
 Public Class File
 	Inherits PigBaseMini
-	Private Const CLS_VERSION As String = "1.0.1"
+	Private Const CLS_VERSION As String = "1.0.2"
 	Public Obj As Object
 	Public Sub New()
 		MyBase.New(CLS_VERSION)
@@ -132,7 +133,9 @@ Public Class File
 	Public ReadOnly Property ParentFolder() As Folder
 		Get
 			Try
-				Return Me.Obj.ParentFolder
+				Dim oFolder As New Folder
+				oFolder.Obj = Me.Obj.ParentFolder
+				Return oFolder
 				Me.ClearErr()
 			Catch ex As Exception
 				Me.SetSubErrInf("ParentFolder.Get", ex)
