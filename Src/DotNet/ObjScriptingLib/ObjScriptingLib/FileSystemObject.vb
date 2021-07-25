@@ -4,13 +4,12 @@
 '* License: Copyright (c) 2020 Seow Phong, For more details, see the MIT LICENSE file included with this distribution.
 '* Describe: Mapping VB6 Scripting.FileSystemObject
 '* Home Url: https://www.seowphong.com or https://en.seowphong.com
-'* Version: 1.0.2
+'* Version: 1.0.1
 '* Create Time: 27/2/2021
-'* 1.0.2 25/7/2021   Modify OpenTextFile
 '**********************************
 Public Class FileSystemObject
 	Inherits PigBaseMini
-	Private Const CLS_VERSION As String = "1.0.2"
+	Private Const CLS_VERSION As String = "1.0.1"
 	Public Obj As Object
 	Public Enum SpecialFolderConst
 		SystemFolder = 1
@@ -279,17 +278,13 @@ Public Class FileSystemObject
 		End Try
 	End Sub
 	Public Function OpenTextFile(FileName As String, Optional IOMode As IOMode = IOMode.ForReading, Optional Create As Boolean = False, Optional Format As Tristate = Tristate.TristateFalse) As TextStream
-		Const SUB_NAME As String = "OpenTextFile"
-		Dim strStepName As String = ""
 		Try
 			Dim oTextStream As New TextStream
-			strStepName = "Obj.OpenTextFile"
-			Me.PrintDebugLog(SUB_NAME, strStepName, FileName)
 			oTextStream.Obj = Me.Obj.OpenTextFile(FileName, IOMode, Create, Format)
 			Return oTextStream
 			Me.ClearErr()
 		Catch ex As Exception
-			Me.SetSubErrInf(SUB_NAME, strStepName, ex)
+			Me.SetSubErrInf("OpenTextFile", ex)
 			Return Nothing
 		End Try
 	End Function

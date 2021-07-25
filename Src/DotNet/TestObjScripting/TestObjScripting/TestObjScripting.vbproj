@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <RootNamespace>TestObjScripting</RootNamespace>
-    <TargetFramework>net45</TargetFramework>
+    <TargetFramework>net40</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <Reference Include="ObjScriptingLib">
-      <HintPath>..\..\ObjScriptingLib\ObjScriptingLib\bin\Debug\net45\ObjScriptingLib.dll</HintPath>
+      <HintPath>..\..\ObjScriptingLib\ObjScriptingLib\bin\Debug\net40\ObjScriptingLib.dll</HintPath>
     </Reference>
   </ItemGroup>
 
