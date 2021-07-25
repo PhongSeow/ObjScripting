@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TestObjScripting</RootNamespace>
+    <TargetFramework>net45</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ObjScriptingLib">
+      <HintPath>..\..\ObjScriptingLib\ObjScriptingLib\bin\Debug\net45\ObjScriptingLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
