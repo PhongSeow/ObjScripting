@@ -12,9 +12,9 @@
 	  <PackageProjectUrl>https://en.seowphong.com/oss/ObjScripting/</PackageProjectUrl>
 	  <RepositoryType>GIT</RepositoryType>
 	  <RepositoryUrl>https://github.com/PhongSeow/ObjScripting/tree/master/Src/DotNet/ObjScriptingDemo</RepositoryUrl>
-	  <Version>1.0.3</Version>
+	  <Version>1.0.5</Version>
 	  <PackageTags>ObjScriptingLib VB6 ASP scrrun.dll Microsoft Scripting Runtime Dictionary Drive Encoder File FileSystemObject Folder TextStream</PackageTags>
-	  <PackageReleaseNotes>Reference the latest class library.</PackageReleaseNotes>
+	  <PackageReleaseNotes>Optimize debugging function.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ObjScriptingLib" Version="1.0.6.1" />
+    <PackageReference Include="ObjScriptingLib" Version="1.0.7.6" />
   </ItemGroup>
 
 </Project>

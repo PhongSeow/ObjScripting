@@ -4,6 +4,7 @@ Public Class ConsoleDemo
     Private oFS As New FileSystemObject
 
     Public Sub Main()
+        oFS.OpenDebug("c:\temp", True)
         Do While True
             Console.WriteLine("*******************")
             Console.WriteLine("Main menu")
