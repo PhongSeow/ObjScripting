@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="PigCmdLib" Version="1.5.38" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="ObjScriptingLib">
       <HintPath>..\..\ObjScriptingLib\ObjScriptingLib\bin\Debug\net40\ObjScriptingLib.dll</HintPath>
     </Reference>

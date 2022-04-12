@@ -1,10 +1,13 @@
 ﻿Imports ObjScriptingLib
+Imports PigCmdLib
 
 Public Class ConsoleDemo
     Private oFS As New FileSystemObject
+    Public PigConsole As New PigConsole
+    Public FilePath As String
+    Public FolderPath As String
 
     Public Sub Main()
-        oFS.OpenDebug("c:\temp", True)
         Do While True
             Console.WriteLine("*******************")
             Console.WriteLine("Main menu")
@@ -33,53 +36,38 @@ Public Class ConsoleDemo
                         Console.WriteLine("Press F to GetTempName")
                         Console.WriteLine("Press G to GetFileVersion")
                         Console.WriteLine("*******************")
-                        Select Case Console.ReadKey().Key
+                        Select Case Console.ReadKey(True).Key
                             Case ConsoleKey.Q
                                 Exit Do
                             Case ConsoleKey.A
-                                Dim strFilePath As String
                                 Console.WriteLine("#################")
-                                Console.WriteLine("Enter the file path")
-                                strFilePath = Console.ReadLine()
-                                Dim oFile As File = oFS.GetFile(strFilePath)
+                                Me.PigConsole.GetLine("Enter the file path", Me.FilePath)
+                                Dim oFile As File = oFS.GetFile(Me.FilePath)
                                 Console.WriteLine("DateCreated: " & oFile.DateCreated)
                                 Console.WriteLine("DateLastModified: " & oFile.DateLastModified)
                                 Console.WriteLine("Name: " & oFile.Name)
                                 Console.WriteLine("Path: " & oFile.Path)
                                 Console.WriteLine("#################")
                             Case ConsoleKey.B
-                                Dim strFolderPath As String
                                 Console.WriteLine("#################")
-                                Console.WriteLine("Enter the file folder ")
-                                strFolderPath = Console.ReadLine()
-                                Dim oFolder As Folder = oFS.GetFolder(strFolderPath)
+                                Me.PigConsole.GetLine("Enter the file folder", Me.FolderPath)
+                                Dim oFolder As Folder = oFS.GetFolder(Me.FolderPath)
                                 Console.WriteLine("DateCreated: " & oFolder.DateCreated)
                                 Console.WriteLine("DateLastModified: " & oFolder.DateLastModified)
                                 Console.WriteLine("Name: " & oFolder.Name)
                                 Console.WriteLine("Path: " & oFolder.Path)
                                 Console.WriteLine("#################")
                             Case ConsoleKey.C
-                                Dim strFilePath As String
-                                Console.WriteLine("#################")
-                                Console.WriteLine("Enter the file path")
-                                strFilePath = Console.ReadLine()
-                                Console.WriteLine("FileExists: " & oFS.FileExists(strFilePath))
+                                Me.PigConsole.GetLine("Enter the file path", Me.FilePath)
+                                Console.WriteLine("FileExists: " & oFS.FileExists(Me.FilePath))
                                 Console.WriteLine("#################")
                             Case ConsoleKey.D
-                                Dim strFolderPath As String
-                                Console.WriteLine("#################")
-                                Console.WriteLine("Enter the file folder")
-                                strFolderPath = Console.ReadLine()
-                                Console.WriteLine("FolderExists: " & oFS.FolderExists(strFolderPath))
+                                Me.PigConsole.GetLine("Enter the file folder", Me.FolderPath)
+                                Console.WriteLine("FolderExists: " & oFS.FolderExists(Me.FolderPath))
                                 Console.WriteLine("#################")
                             Case ConsoleKey.E
-                                Dim strFolderPath As String
-                                Console.WriteLine("#################")
-                                With oFS
-                                    Console.WriteLine("Enter the file folder")
-                                End With
-                                strFolderPath = Console.ReadLine()
-                                oFS.CreateFolder(strFolderPath)
+                                Me.PigConsole.GetLine("Enter the file folder", Me.FolderPath)
+                                oFS.CreateFolder(Me.FolderPath)
                                 Console.Write("CreateFolder: ")
                                 If oFS.LastErr = "" Then
                                     Console.WriteLine("OK")
@@ -93,9 +81,8 @@ Public Class ConsoleDemo
                                 Console.WriteLine("#################")
                             Case ConsoleKey.G
                                 Console.WriteLine("#################")
-                                Console.WriteLine("Input file path: ")
-                                Dim strFilePath As String = Console.ReadLine()
-                                Console.WriteLine("GetFileVersion: " & oFS.GetFileVersion(strFilePath))
+                                Me.PigConsole.GetLine("Enter the file path", Me.FilePath)
+                                Console.WriteLine("GetFileVersion: " & oFS.GetFileVersion(Me.FilePath))
                                 Console.WriteLine("#################")
                         End Select
                     Loop
@@ -112,16 +99,14 @@ Public Class ConsoleDemo
                             Case ConsoleKey.Q
                                 Exit Do
                             Case ConsoleKey.A
-                                Dim strFilePath As String
                                 Console.WriteLine("#################")
-                                Console.WriteLine("Enter the file path")
-                                strFilePath = Console.ReadLine()
-                                If oFS.FileExists(strFilePath) = False Then
-                                    Console.WriteLine(strFilePath & " not found.")
+                                Me.PigConsole.GetLine("Enter the file path", Me.FilePath)
+                                If oFS.FileExists(Me.FilePath) = False Then
+                                    Console.WriteLine(Me.FilePath & " not found.")
                                 Else
                                     Dim oTextStream As TextStream
-                                    Console.WriteLine("OpenTextFile(" & strFilePath & ")...")
-                                    oTextStream = oFS.OpenTextFile(strFilePath, FileSystemObject.IOMode.ForReading, False)
+                                    Console.WriteLine("OpenTextFile(" & Me.FilePath & ")...")
+                                    oTextStream = oFS.OpenTextFile(Me.FilePath, FileSystemObject.IOMode.ForReading, False)
                                     If oFS.LastErr <> "" Then
                                         Console.WriteLine(oFS.LastErr)
                                     Else
@@ -133,12 +118,10 @@ Public Class ConsoleDemo
                                 End If
                                 Console.WriteLine("#################")
                             Case ConsoleKey.B
-                                Dim strFilePath As String
-                                Console.Write("Enter the file path:")
-                                strFilePath = Console.ReadLine()
+                                Me.PigConsole.GetLine("Enter the file path", Me.FilePath)
                                 Dim oTextStream As TextStream
-                                Console.WriteLine("OpenTextFile(" & strFilePath & ")...")
-                                oTextStream = oFS.OpenTextFile(strFilePath, FileSystemObject.IOMode.ForWriting, True)
+                                Console.WriteLine("OpenTextFile(" & Me.FilePath & ")...")
+                                oTextStream = oFS.OpenTextFile(Me.FilePath, FileSystemObject.IOMode.ForWriting, True)
                                 If oFS.LastErr <> "" Then
                                     Console.WriteLine(oFS.LastErr)
                                 Else
