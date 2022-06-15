@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <RootNamespace>ObjScriptingDemo</RootNamespace>
-    <TargetFrameworks>net20;net30;net35;net40;net45;</TargetFrameworks>
+    <TargetFrameworks>net20;net30;net35;net48;</TargetFrameworks>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  <Authors>Seow Phong</Authors>
 	  <Company>Seow Phong Studio</Company>
@@ -12,9 +12,9 @@
 	  <PackageProjectUrl>https://en.seowphong.com/oss/ObjScripting/</PackageProjectUrl>
 	  <RepositoryType>GIT</RepositoryType>
 	  <RepositoryUrl>https://github.com/PhongSeow/ObjScripting/tree/master/Src/DotNet/ObjScriptingDemo</RepositoryUrl>
-	  <Version>1.1.2</Version>
+	  <Version>1.1.3</Version>
 	  <PackageTags>ObjScriptingLib VB6 ASP scrrun.dll Microsoft Scripting Runtime Dictionary Drive Encoder File FileSystemObject Folder TextStream</PackageTags>
-	  <PackageReleaseNotes>Use PigCmd.</PackageReleaseNotes>
+	  <PackageReleaseNotes>Reference the latest class library.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,8 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ObjScriptingLib" Version="1.0.7.6" />
-    <PackageReference Include="PigCmdLib" Version="1.5.38" />
+    <PackageReference Include="ObjScriptingLib" Version="1.1.2" />
+    <PackageReference Include="PigCmdLib" Version="1.9.50" />
   </ItemGroup>
 
 </Project>
