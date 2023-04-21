@@ -9,10 +9,10 @@
 	  <Product>ObjScripting Demo Console</Product>
 	  <Description>Demo console program for ObjScriptingLib</Description>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <PackageProjectUrl>https://en.seowphong.com/oss/ObjScripting/</PackageProjectUrl>
+	  <PackageProjectUrl>https://en.seowphong.com</PackageProjectUrl>
 	  <RepositoryType>GIT</RepositoryType>
 	  <RepositoryUrl>https://github.com/PhongSeow/ObjScripting/tree/master/Src/DotNet/ObjScriptingDemo</RepositoryUrl>
-	  <Version>1.1.6</Version>
+	  <Version>1.1.8</Version>
 	  <PackageTags>ObjScriptingLib VB6 ASP scrrun.dll Microsoft Scripting Runtime Dictionary Drive Encoder File FileSystemObject Folder TextStream</PackageTags>
 	  <PackageReleaseNotes>Reference the latest class library.</PackageReleaseNotes>
   </PropertyGroup>
@@ -34,8 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ObjScriptingLib" Version="1.1.2" />
-    <PackageReference Include="PigCmdLib" Version="1.9.92" />
+    <PackageReference Include="ObjScriptingLib" Version="1.1.6" />
+    <PackageReference Include="PigCmdLib" Version="2.2.22" />
   </ItemGroup>
 
 </Project>
