@@ -12,9 +12,10 @@
 	  <PackageProjectUrl>https://en.seowphong.com</PackageProjectUrl>
 	  <RepositoryType>GIT</RepositoryType>
 	  <RepositoryUrl>https://github.com/PhongSeow/ObjScripting/tree/master/Src/DotNet/ObjScriptingDemo</RepositoryUrl>
-	  <Version>1.1.8</Version>
+	  <Version>1.1.10</Version>
 	  <PackageTags>ObjScriptingLib VB6 ASP scrrun.dll Microsoft Scripting Runtime Dictionary Drive Encoder File FileSystemObject Folder TextStream</PackageTags>
 	  <PackageReleaseNotes>Reference the latest class library.</PackageReleaseNotes>
+	  <PackageReadmeFile>SampleDemo.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,8 +35,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ObjScriptingLib" Version="1.1.6" />
-    <PackageReference Include="PigCmdLib" Version="2.2.22" />
+    <None Include="..\..\..\..\Release\DotNet\ObjScriptingDemo\SampleDemo.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ObjScriptingLib" Version="1.1.8" />
+    <PackageReference Include="PigCmdLib" Version="2.2.50" />
   </ItemGroup>
 
 </Project>

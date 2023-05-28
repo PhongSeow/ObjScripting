@@ -14,13 +14,11 @@
     <PackageTags>ObjScriptingLib VB6 ASP scrrun.dll
  Microsoft Scripting Runtime Dictionary Drive Encoder File FileSystemObject Folder TextStream</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.6</Version>
-    <Description>This is a .net library and NuGet package that maps Microsoft Scripting Runtime. It can be used in different .net frameworks.
-The scrrun.dll required. Windows will be installed in advance.
-Using this library, you can easily upgrade VB6 and ASP code to .net platform.
-If the program is running in IIS, the advanced settings need set Enable 32-bit Applications of Application pools is true.</Description>
-    <PackageReleaseNotes>Update project information.</PackageReleaseNotes>
+    <Version>1.1.8</Version>
+    <Description>This is a .net library and NuGet package that maps Microsoft Scripting Runtime. It can be used in different .net frameworks.</Description>
+    <PackageReleaseNotes>Update readme.</PackageReleaseNotes>
     <AssemblyVersion>1.1.2.0</AssemblyVersion>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,6 +29,13 @@ If the program is running in IIS, the advanced settings need set Enable 32-bit A
     <None Include="SeowPhongLogo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
 
